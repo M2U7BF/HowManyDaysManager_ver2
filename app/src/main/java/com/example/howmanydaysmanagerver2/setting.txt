@@ -1,0 +1,49 @@
+追加ボタンでの要素追加(https://android.keicode.com/basics/ui-listview.php)
+テキスト入力
+    追加ボタンを押すとテキスト入力画面に遷移 → わかりやすいため採用
+    画面遷移においてActivityの遷移よりfragmentの遷移のほうが軽いため採用
+     fragmentの実装(https://akira-watson.com/android/activity-fragment.html)
+        fragmentの切り替え時に追加ボタンを非表示にする
+    or
+    ポップアップ
+    ②項目
+    タイトル
+    日にち(https://developer.android.com/guide/topics/ui/controls/pickers?hl=ja)
+        fragmentでの日付表示
+                fragmentでonclick設定
+            ①activityのshowDateで日付データ生成
+            ②onDateSetで日付取得
+            ③受け渡し
+                return使用不可
+                → (aresei-note.com/ データ受け渡し)
+            ②fragmentでsetText
+        書式設定
+
+
+追加機能
+● ･ 未来の日付の場合表示を変える
+･ 通知が来るようにする
+    頻度:毎日〜X日ごと,X週間ごと,
+    手段:メール,ライン,
+･ ソート機能
+･ 削除、編集
+･ データ閲覧機能(ポイント制など)
+･ 追加をより簡単にする(Main画面での横スクロールで追加画面へ)
+
+
+バージョン管理の導入
+(https://qiita.com/TAKANEKOMACHI/items/0101f0ff88fad2696e81)
+
+ログ
+-の時〜まで何日
+
+
+
+Error
+    2022/05/20
+        setTextのnullpointerException
+        解決
+            型の宣言で変数を新たに宣言していた
+
+工夫
+日付の計算 計算に利用する目的であるため、Calendarで取得
