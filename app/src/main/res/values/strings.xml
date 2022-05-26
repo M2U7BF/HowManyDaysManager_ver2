@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">My ApplicatioHowManyDaysManager.ver2</string>
+    <string name="app_name">HowManyDaysManager_ver2</string>
     <string name="button">Button</string>
     <string name="activity">Activity</string>
+    <string name="edittext_title">タイトル</string>
+    <string name="edittext_date">開始日</string>
+    <string name="button_save">保存</string>
+    <string name="button_delete">削除</string>
 
 </resources>

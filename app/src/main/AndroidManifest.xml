@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicatioHowManyDaysManagerver2">
         <activity
+            android:name="com.example.howmanydaysmanagerver2.ActivityEditListElem"
+            android:exported="false" />
+        <activity
             android:name="com.example.howmanydaysmanagerver2.Activity_SetData"
             android:exported="false" />
         <activity

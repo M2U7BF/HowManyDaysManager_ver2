@@ -22,7 +22,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Create a new instance of TimePickerDialog and return it
-        return new DatePickerDialog(getActivity(), (Activity_SetData)getActivity(), year, month, day);
+        return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), year, month, day);
     }
 
     @Override
