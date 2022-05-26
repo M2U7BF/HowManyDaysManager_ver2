@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -20,7 +22,7 @@ public class Common extends Application {
     public String today_for_Activity_SetData = sdf2.format(cal_today.getTime()) + " 00:00:00:000";;
     public int elem_num = 0;
     public int editPosition = 0;
-    public boolean sortSwitch_id = false;
+    public boolean sortSwitch_deadline = true;
     public boolean sortSwitch_title = false;
 
     public int DateCalculator(String startDate){
@@ -51,6 +53,25 @@ public class Common extends Application {
         }
 
         return difference_of_days;
+    }
+
+    public void sortList(){
+        //選択項目を取得
+        //選択項目の方法でソートする
+        //mainに移す
+        Collections.sort(dataset, new Comparator<CompareObjects>(){
+            @Override
+            public int compare(CompareObjects objects, CompareObjects t1) {
+                int return_i = 0;
+                if (sortSwitch_deadline && !sortSwitch_title) {
+                    return_i = Integer.compare(objects.getDifferenceOfDate(), t1.getDifferenceOfDate());
+                } else if (!sortSwitch_deadline && sortSwitch_title) {
+                    return_i = objects.getTitle().compareTo(t1.getTitle());
+                }
+
+                return return_i;
+            }
+        });
     }
 
     @Override

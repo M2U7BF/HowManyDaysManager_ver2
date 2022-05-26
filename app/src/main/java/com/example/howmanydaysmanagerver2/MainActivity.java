@@ -1,5 +1,8 @@
 package com.example.howmanydaysmanagerver2;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,11 +16,14 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.myapplicatiohowmanydaysmanagerver2.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         c = (Common) getApplication();
-//        dataset = new ArrayList();
-
 
         //ステータスバーのカスタマイズ
         getWindow().setStatusBarColor(Color.DKGRAY);
@@ -73,12 +77,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Intent intent = new Intent(getApplication(), Activity_SetData.class);
             startActivity(intent);
         });
-        button_sort.setOnClickListener(view -> {
-            //期日順にソート
-            Collections.sort(c.dataset);
-            Intent intent = new Intent(getApplication(), MainActivity.class);
-            startActivity(intent);
-        });
         listView.setOnItemClickListener(this);
     }
 
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     protected  void dataReceiver(){
-
         // 受け取りの記述
         if (c.dataset != null) {
             // ListViewに表示するリスト項目をArrayListで準備する
@@ -125,6 +122,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //SubActivityに遷移
         Intent intent = new Intent(this.getApplication(), ActivityEditListElem.class);
         startActivity(intent);
+    }
+
+    public void showDialog(View view){
+        DialogFragment dialogFragment = new MyDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(),"my_dialog");
     }
 
 }

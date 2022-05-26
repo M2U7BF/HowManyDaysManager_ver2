@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:contentDescription="sortIcon"
+            android:onClick="showDialog"
             app:srcCompat="@drawable/ic_baseline_sort_24" />
 
         <TextView

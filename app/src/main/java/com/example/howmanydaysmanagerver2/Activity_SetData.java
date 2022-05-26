@@ -72,6 +72,7 @@ public class Activity_SetData extends AppCompatActivity implements DatePickerDia
 
                 //完成したデータセットを追加
                 c.dataset.add(new CompareObjects(title,startDate));
+                c.sortList();
 
                 //画面遷移
                 Intent intent = new Intent(this, MainActivity.class);
